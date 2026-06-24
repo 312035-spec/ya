@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>日語單字學習網站</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="日語單字學習網站：單字新增、翻牌/選擇題/打字練習、Apps Script Google Sheets 儲存。" />
+</head>
+<body>
+  <div class="page-shell">
+    <header>
+      <h1>日語單字學習網站</h1>
+      <p>新增單字、直接顯示中文翻譯、詞性、例句，並提供 3 種練習模式。</p>
+      <div id="auth-area"></div>
+    </header>
+
+    <section class="hero-card">
+      <div>
+        <p class="hero-eyebrow">分類單字庫 • 立即開始</p>
+        <h2>每個分類已擴充 30 個基礎單字</h2>
+        <p>選擇你要練習的主題：基本、動物、公司用語、學校、美食，無需登入即可直接使用。</p>
+      </div>
+      <div class="hero-tags">
+        <span>基本</span>
+        <span>動物</span>
+        <span>公司用語</span>
+        <span>學校</span>
+        <span>美食</span>
+      </div>
+    </section>
+
+    <section class="category-wrapper">
+      <div class="category-header">
+        <div>
+          <p class="category-label">選擇單字分類</p>
+          <h2>按主題快速切換學習內容</h2>
+        </div>
+        <p class="category-note">點選下方按鈕開始學習。</p>
+      </div>
+      <div class="category-tabs" id="category-tabs"></div>
+    </section>
+
+    <main id="app">
+      <section class="card">
+        <h2>新增單字</h2>
+        <div class="form-row">
+          <label>日文</label>
+          <input id="jp-word" placeholder="例：猫" />
+        </div>
+        <div class="form-row inline-row">
+          <button id="auto-fill">自動填入詞性 / 翻譯 / 例句</button>
+          <button id="save-word">儲存至我的單字庫</button>
+        </div>
+        <div class="form-row">
+          <label>中文翻譯</label>
+          <input id="cn-meaning" placeholder="例：貓" />
+        </div>
+        <div class="form-row">
+          <label>詞性</label>
+          <input id="pos" placeholder="例：名詞" />
+        </div>
+        <div class="form-row">
+          <label>讀音</label>
+          <input id="reading" placeholder="例：ねこ" />
+        </div>
+        <div class="form-row">
+          <label>例句</label>
+          <textarea id="example" placeholder="例：猫はかわいいです。"></textarea>
+        </div>
+        <div id="message" class="message"></div>
+      </section>
+
+      <section class="card">
+        <h2>我的單字庫</h2>
+        <div class="vocab-list" id="vocab-list"></div>
+      </section>
+
+      <section class="card">
+        <h2>學習模式</h2>
+        <div class="mode-buttons">
+          <button class="mode-btn" data-mode="flashcard">翻牌模式</button>
+          <button class="mode-btn" data-mode="multiple">選擇題模式</button>
+          <button class="mode-btn" data-mode="typing">打字練習</button>
+        </div>
+        <div class="mode-panel" id="mode-panel"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>每類分類單字庫已擴充至 30 個以上單字，練習時答對會自動切換下一題。</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
